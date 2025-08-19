@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" data-theme="violet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReelStar: Private Investment Memorandum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @layer base {
+          :root, [data-theme="violet"] {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+            --primary: 248 89% 60%;
+            --primary-foreground: 0 0% 98%;
+            --secondary: 210 40% 96.1%;
+            --secondary-foreground: 222.2 47.4% 11.2%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 248 95% 65%;
+            --accent-foreground: 0 0% 98%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 0 0% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 248 89% 60%;
+            --radius: 0.75rem;
+          }
+        
+          .dark, :root.dark, [data-theme="violet"].dark {
+            --background: 240 10% 4%;
+            --foreground: 0 0% 98%;
+            --card: 240 10% 10%;
+            --card-foreground: 0 0% 98%;
+            --popover: 240 10% 4%;
+            --popover-foreground: 0 0% 98%;
+            --primary: 248 89% 60%;
+            --primary-foreground: 0 0% 98%;
+            --secondary: 240 5% 16%;
+            --secondary-foreground: 0 0% 98%;
+            --muted: 240 5% 16%;
+            --muted-foreground: 240 5% 65%;
+            --accent: 248 95% 65%;
+            --accent-foreground: 0 0% 98%;
+            --destructive: 0 62.8% 30.6%;
+            --destructive-foreground: 0 0% 98%;
+            --border: 240 5% 20%;
+            --input: 240 5% 20%;
+            --ring: 248 89% 60%;
+            --radius: 0.75rem;
+          }
+
+          [data-theme="blue"] {
+            --primary: 221.2 83.2% 53.3%;
+            --primary-foreground: 210 40% 98%;
+            --accent: 217.2 91.2% 59.8%;
+          }
+          [data-theme="green"] {
+            --primary: 142.1 76.2% 36.3%;
+            --primary-foreground: 0 0% 98%;
+            --accent: 142.1 70.6% 45.3%;
+          }
+          [data-theme="orange"] {
+            --primary: 24.6 95% 53.1%;
+            --primary-foreground: 0 0% 98%;
+            --accent: 20.5 90.2% 48.2%;
+          }
+          [data-theme="rose"] {
+            --primary: 346.8 77.2% 49.8%;
+            --primary-foreground: 0 0% 98%;
+            --accent: 346.8 77.2% 49.8%;
+          }
+        }
+
+        @layer base {
+          * {
+            border-color: hsl(var(--border));
+          }
+          body {
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3e%3cg fill='hsl(var(--primary))' opacity='0.05'%3e%3cg transform='translate(50 50) scale(0.45) translate(-50 -50)'%3e%3cpath d='M50,0 L60,40 L100,50 L60,60 L50,100 L40,60 L0,50 L40,40 Z' /%3e%3cpath d='M50,20 L80,50 L50,80 L20,50 Z' /%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+            padding-top: env(safe-area-inset-top);
+            padding-right: env(safe-area-inset-right);
+            padding-left: env(safe-area-inset-left);
+          }
+          
+          .dark h1,
+          .dark h2,
+          .dark h3 {
+            color: hsl(var(--foreground));
+          }
+          .text-logo {
+            color: hsl(var(--accent));
+          }
+          .dark .text-logo {
+            color: hsl(var(--accent));
+          }
+
+          .dark body {
+            background-image: radial-gradient(circle at top right, hsl(var(--primary) / 0.15), transparent 40%), radial-gradient(circle at bottom left, hsl(var(--accent) / 0.1), transparent 50%), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3e%3cg fill='white' opacity='0.03'%3e%3cg transform='translate(50 50) scale(0.45) translate(-50 -50)'%3e%3cpath d='M50,0 L60,40 L100,50 L60,60 L50,100 L40,60 L0,50 L40,40 Z' /%3e%3cpath d='M50,20 L80,50 L50,80 L20,50 Z' /%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+            background-color: #050505;
+            background-attachment: fixed;
+          }
+        }
+
+        .text-primary-outline {
+            -webkit-text-stroke: 1px hsl(var(--primary));
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dark .text-primary-outline {
+            -webkit-text-stroke: 1px hsl(var(--primary));
+            -webkit-text-fill-color: hsl(var(--background));
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .font-headline { font-family: 'Poppins', sans-serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-mono { font-family: monospace; }
+        
+        .text-glow {
+            text-shadow: 0 0 8px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3);
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        body: ['Inter', 'sans-serif'],
+                        headline: ['Poppins', 'sans-serif'],
+                        code: ['monospace'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        card: {
+                            DEFAULT: 'hsl(var(--card))',
+                            foreground: 'hsl(var(--card-foreground))',
+                        },
+                        popover: {
+                            DEFAULT: 'hsl(var(--popover))',
+                            foreground: 'hsl(var(--popover-foreground))',
+                        },
+                        primary: {
+                            DEFAULT: 'hsl(var(--primary))',
+                            foreground: 'hsl(var(--primary-foreground))',
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(var(--secondary))',
+                            foreground: 'hsl(var(--secondary-foreground))',
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(var(--muted))',
+                            foreground: 'hsl(var(--muted-foreground))',
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(var(--accent))',
+                            foreground: 'hsl(var(--accent-foreground))',
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(var(--destructive))',
+                            foreground: 'hsl(var(--destructive-foreground))',
+                        },
+                        border: 'hsl(var(--border))',
+                        input: 'hsl(var(--input))',
+                        ring: 'hsl(var(--ring))',
+                    },
+                    borderRadius: {
+                        lg: "var(--radius)",
+                        md: "calc(var(--radius) - 2px)",
+                        sm: "calc(var(--radius) - 4px)",
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-foreground antialiased min-h-screen">
+    <div class="max-w-4xl mx-auto p-4 sm:p-8 space-y-6 font-sans">
+        <div id="memorandum-content" class="space-y-6">
+            <div data-section="true" id="pdf-header" class="scroll-mt-20 rounded-lg border bg-card text-card-foreground shadow-sm bg-card/70 backdrop-blur-sm border-primary/20">
+                <div class="flex flex-col items-center justify-center min-h-[50vh] p-8 text-center">
+                    <div class="flex items-center justify-center lg:justify-start gap-2 mb-8">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="w-24 h-24">
+                          <defs>
+                            <radialGradient id="rstrMainGradient-1" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+                              <stop offset="0%" stop-color="hsl(var(--accent))" stop-opacity="0.8"></stop>
+                              <stop offset="70%" stop-color="hsl(var(--primary))"></stop>
+                              <stop offset="100%" stop-color="hsl(274 100% 5%)"></stop>
+                            </radialGradient>
+                            <radialGradient id="rstrStarGradient-1" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="hsl(var(--primary-foreground))" stop-opacity="1"></stop>
+                                <stop offset="75%" stop-color="hsl(var(--primary-foreground))" stop-opacity="0.8"></stop>
+                                <stop offset="100%" stop-color="hsl(var(--primary-foreground))" stop-opacity="0.6"></stop>
+                            </radialGradient>
+                          </defs>
+                          <g>
+                            <circle cx="50" cy="50" r="48" fill="url(#rstrMainGradient-1)"></circle>
+                            <circle cx="50" cy="50" r="42" fill="none" stroke="hsl(var(--accent))" stroke-opacity="0.3" stroke-width="1.5"></circle>
+                            <g transform="translate(50 50) scale(0.45) translate(-50 -50)">
+                                 <path d="M50,0 L60,40 L100,50 L60,60 L50,100 L40,60 L0,50 L40,40 Z" fill="url(#rstrStarGradient-1)" stroke="hsl(var(--primary-foreground))" stroke-opacity="0.5" stroke-width="1" stroke-linejoin="round"></path>
+                                 <path d="M50,20 L80,50 L50,80 L20,50 Z" fill="url(#rstrStarGradient-1)" stroke="hsl(var(--primary-foreground))" stroke-width="1.5" stroke-linejoin="round"></path>
+                            </g>
+                            <circle cx="50" cy="50" r="48.5" fill="none" stroke="#FF69B4" stroke-width="1"></circle>
+                            <circle cx="50" cy="50" r="47" fill="none" stroke="#FFFF00" stroke-width="1"></circle>
+                            <path d="M 15 25 A 50 50 0 0 1 85 25" stroke="hsl(var(--primary-foreground))" stroke-width="1.5" stroke-opacity="0.5" fill="none"></path>
+                          </g>
+                        </svg>
+                        <div class="flex flex-col items-center">
+                            <h1 class="text-4xl sm:text-5xl font-headline font-black">
+                                <span class="flex items-baseline text-primary-outline"><span>ReelStar</span><span class="text-[0.375em] ml-px">&copy;</span></span>
+                            </h1>
+                            <span class="block text-xs text-muted-foreground tracking-tight -mt-2">Where Influencers Reign</span>
+                        </div>
+                    </div>
+                    <h1 class="text-4xl font-headline font-bold text-center text-muted-foreground">Private Investment Memorandum</h1>
+                    <p class="text-center text-muted-foreground text-sm mt-2">This is a tokenized influence social ai engine. Purposely built for the influencer-content creator of tomorrow.</p>
+                    <p class="mt-4 text-xs text-muted-foreground/80 text-center">Highly Confidential</p>
+                    <div class="mt-2 text-xs text-muted-foreground/80 text-center">
+                        <p>Prepared by: Angelo Ioannou, Developer, Architect, Founder of ReelStar</p>
+                        <p>Entity: Affinity Magnate, Inc. / Ai NFT Lab</p>
+                    </div>
+                    <p class="text-xs text-muted-foreground/80 text-center">Date: July 21, 2025</p>
+                </div>
+            </div>
+            
+            <div data-section="true" id="table-of-contents" class="rounded-lg border bg-card text-card-foreground shadow-sm scroll-mt-20 bg-card/70 backdrop-blur-sm border-primary/20">
+                <div class="flex flex-col space-y-1.5 p-6 text-center">
+                    <h3 class="text-2xl font-semibold leading-none tracking-tight font-sans">Investor Memorandum: Table of Contents</h3>
+                    <p class="text-sm text-muted-foreground">Navigate directly to key sections of the memorandum.</p>
+                </div>
+                <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                    <a href="#market-pulse" data-section-id="market-pulse" class="font-sans text-foreground hover:underline underline-offset-4">The AI Market Pulse</a>
+                    <a href="#hyper-display-postcard" data-section-id="hyper-display-postcard" class="font-sans text-foreground hover:underline underline-offset-4">The Sentient Feed</a>
+                    <a href="#comparative-analysis" data-section-id="comparative-analysis" class="font-sans text-foreground hover:underline underline-offset-4">ReelStar vs. The Legacy Model</a>
+                    <a href="#architecture" data-section-id="architecture" class="font-sans text-foreground hover:underline underline-offset-4">ReelStar Architecture</a>
+                    <a href="#executive-summary-main" data-section-id="executive-summary-main" class="font-sans text-foreground hover:underline underline-offset-4">Executive Summary</a>
+                    <a href="#market-position" data-section-id="market-position" class="font-sans text-foreground hover:underline underline-offset-4">Market Position: The Stand-Alone Effect</a>
+                    <a href="#security" data-section-id="security" class="font-sans text-foreground hover:underline underline-offset-4">The ReelStar Fortress</a>
+                    <a href="#valuation" data-section-id="valuation" class="font-sans text-foreground hover:underline underline-offset-4">Valuation Justification</a>
+                    <a href="#roadmap" data-section-id="roadmap" class="font-sans text-foreground hover:underline underline-offset-4">Global Launch Roadmap</a>
+                    <a href="#budget-allocation" data-section-id="budget-allocation" class="font-sans text-foreground hover:underline underline-offset-4">Budget Allocation</a>
+                    <a href="#financials" data-section-id="financials" class="font-sans text-foreground hover:underline underline-offset-4">Financial Projections</a>
+                    <a href="#tokenomics" data-section-id="tokenomics" class="font-sans text-foreground hover:underline underline-offset-4">Apex Asset: Tokenized Influence</a>
+                    <a href="#live-rollout" data-section-id="live-rollout" class="font-sans text-foreground hover:underline underline-offset-4">The 9-Month Plan</a>
+                    <a href="#return-profile" data-section-id="return-profile" class="font-sans text-foreground hover:underline underline-offset-4">Generational Return Profile</a>
+                    <a href="#investment-paths" data-section-id="investment-paths" class="font-sans text-foreground hover:underline underline-offset-4">Investment Pathways</a>
+                    <a href="#core-team" data-section-id="core-team" class="font-sans text-foreground hover:underline underline-offset-4">The Core Team</a>
+                    <a href="#founder-bio" data-section-id="founder-bio" class="font-sans text-foreground hover:underline underline-offset-4">Founder Bio</a>
+                    <a href="#contact" data-section-id="contact" class="font-sans text-foreground hover:underline underline-offset-4">Contact &amp; Next Steps</a>
+                </div>
+            </div>
+            
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm scroll-mt-20 bg-card/70 backdrop-blur-sm border-primary/20 text-foreground p-8" data-section="true" id="report-from-the-future">
+                <div class="flex flex-col space-y-1.5 p-6 text-center">
+                    <h3 class="text-4xl font-headline font-bold text-primary text-glow">The Year is 2030. What Did You Miss?</h3>
+                    <p class="text-sm text-neutral-400">A Report from the Future on the State of the AI-Native Creator Economy.</p>
+                </div>
+                <div class="p-6 pt-0 mt-6 space-y-6 text-lg max-w-3xl mx-auto">
+                    <ul class="list-disc list-outside space-y-4 pl-5">
+                        <li><strong>The Sentient Feed™</strong>, once a theoretical concept, now drives over <strong>80% of digital engagement</strong>, with its <strong>Quantum Loop™</strong> interface becoming the new standard for interaction.</li>
+                        <li><strong>Tokenized Influence</strong>, a new asset class created by ReelStar, has surpassed early-stage startup equity as the dominant high-growth investment for retail and institutional capital.</li>
+                        <li>ReelStar's <strong>Hyper-Tokenized GDP Social AI Engine</strong> has become the undisputed OS for the new creator economy, powering <strong>1 in every 3</strong> decentralized platforms.</li>
+                    </ul>
+                    <p class="text-center font-bold text-xl pt-6 text-neutral-300">If you're reading this in 2025, this was the moment to act.</p>
+                    <p class="text-center text-2xl font-bold font-headline pt-4 text-neutral-200">In a world of overfished platforms, we built the ocean.</p>
+                </div>
+            </div>
+
+            <!-- ... (all other sections from whitepaper/page.tsx here) ... -->
+        </div>
+    </div>
+</body>
+</html>
